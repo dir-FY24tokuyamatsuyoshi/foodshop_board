@@ -7,12 +7,20 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 
 @Entity
+@NamedQueries({
+    @NamedQuery(
+        name = "getAllSuggest_shop",
+        query = "SELECT m FROM Suggest_shop AS m ORDER BY m.id DESC"
+    )
+})
 @Table(name = "suggest_shop")
-public class suggest_shop {
+public class Suggest_shop {
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
